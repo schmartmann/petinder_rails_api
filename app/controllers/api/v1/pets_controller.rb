@@ -1,7 +1,7 @@
-class PetsController < ApplicationController
+class Api::V1::PetsController < ApplicationController
 
   def index
-    @pets = Pets.all
+    @pets = Pet.all
     render json: @pets
   end
 
