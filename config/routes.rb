@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :pets, only: [:index, :show]
+      # resources :pets, only: [:index, :show]
+      resources :pets
     end
   end
+
+  # get '/api/v1/pets/petFind' => 'pets#petFind'
+
 end
