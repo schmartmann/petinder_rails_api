@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'httparty'
-
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'json'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

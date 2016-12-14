@@ -1,8 +1,10 @@
 class Api::V1::PetsController < ApplicationController
 
   def index
+    puts "these are the params: #{params}"
+    zip = params[:zip]
     @pets = Pet.all
-    response = HTTParty.get('http://api.petfinder.com/pet.find?location=11103&output=full&format=json&key=f5782a311d586e36c2533d556726d6d5')
+    response = HTTParty.get("http://api.petfinder.com/pet.find?location=#{zip}&output=full&format=json&key=#{ENV['PF_KEY']}")
     @petsFromAPI = [];
     response['petfinder']['pets']['pet'].each do |pet|
       @petsFromAPI.push(
@@ -29,11 +31,4 @@ class Api::V1::PetsController < ApplicationController
     @pet = Pet.find_by(params[:id])
     render json: @pet
   end
-
-  # def petFind
-  #   response = HTTParty.get('http://api.petfinder.com/pet.find?location=11103&output=full&format=json&key=f5782a311d586e36c2533d556726d6d5')
-  #   puts response
-  # end
-
-
 end
