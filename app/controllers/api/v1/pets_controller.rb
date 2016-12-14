@@ -2,6 +2,7 @@ class Api::V1::PetsController < ApplicationController
 
   def index
     puts "these are the params: #{params}"
+    puts ENV["PF_KEY"]
     zip = params[:zip]
     @pets = Pet.all
     response = HTTParty.get("http://api.petfinder.com/pet.find?location=#{zip}&output=full&format=json&key=#{ENV['PF_KEY']}")
