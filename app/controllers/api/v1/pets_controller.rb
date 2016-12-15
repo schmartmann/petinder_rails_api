@@ -2,7 +2,7 @@ class Api::V1::PetsController < ApplicationController
 
   def index
     puts "these are the params: #{params}"
-    puts "okay"
+    puts "this is the current time: #{Time.now()}"
     puts ENV["PF_KEY"]
     zip = params[:zip]
     @pets = Pet.all
