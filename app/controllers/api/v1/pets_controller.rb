@@ -14,7 +14,7 @@ class Api::V1::PetsController < ApplicationController
       puts "pet media contents: #{pet['media']}"
       if pet['media'].empty?
         puts "#{pet['name']['$t']}'s photos are empty'"
-        pet['media'] = {"photos" => {"photo" => [{"@size" => 'x',"$t" => 'https://metrouk2.files.wordpress.com/2015/04/animal-comp.png',"@id" => '1'}]}}
+        pet['media'] = {"photos" => {"photo" => [{"@size" => 'x',"$t" => 'https://www.petfinder.com/wp-content/themes/petfinder2013/img/search/no-photo-profile.png',"@id" => '1'}]}}
         puts "pet[media]: #{pet['media']}"
         pet['media']['photos']['photo'].push(
 
