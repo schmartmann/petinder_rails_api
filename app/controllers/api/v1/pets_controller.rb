@@ -1,12 +1,13 @@
 class Api::V1::PetsController < ApplicationController
 
   def index
-    puts "these are the params: #{params[:location]}"
+    puts "these are the params: #{params[:location]},#{params[:offset]}"
     puts "this is the current time: #{Time.now()}"
     puts ENV["PF_KEY"]
     location = params[:location]
+    offset = params[:offset]
     @pets = Pet.all
-    response = HTTParty.get("http://api.petfinder.com/pet.find?location=#{location}&output=full&format=json&key=#{ENV['PF_KEY']}")
+    response = HTTParty.get("http://api.petfinder.com/pet.find?location=#{location}&output=full&offset=#{offset}&format=json&key=#{ENV['PF_KEY']}")
     @petsFromAPI = [];
 
     response['petfinder']['pets']['pet'].each do |pet|
